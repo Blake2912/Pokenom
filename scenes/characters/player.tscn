@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dgq8u1lu880ka" path="res://scripts/gameplay/characters/CharacterMovement.cs" id="2_dyp2m"]
 [ext_resource type="Script" uid="uid://de4tsd3ipr5xa" path="res://scripts/gameplay/characters/CharacterAnimation.cs" id="4_dyp2m"]
 [ext_resource type="Script" uid="uid://rmsdo77vemwy" path="res://scripts/utilites/StateMachine.cs" id="5_atpat"]
+[ext_resource type="Script" uid="uid://cg23lxy23j4xw" path="res://scripts/gameplay/characters/CharacterCollisionRayCast.cs" id="6_eojnx"]
 [ext_resource type="Script" uid="uid://dn03tqqq6ahao" path="res://scripts/gameplay/characters/States/PlayerRoamState.cs" id="6_kqtwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qees"]
@@ -281,10 +282,11 @@ shape = SubResource("RectangleShape2D_0qees")
 [node name="Input" type="Node" parent="." unique_id=498166979]
 script = ExtResource("1_yewv4")
 
-[node name="Movement" type="Node" parent="." unique_id=1197968590 node_paths=PackedStringArray("Character", "CharacterInput")]
+[node name="Movement" type="Node" parent="." unique_id=1197968590 node_paths=PackedStringArray("Character", "CharacterInput", "CharacterCollisionRayCast")]
 script = ExtResource("2_dyp2m")
 Character = NodePath("..")
 CharacterInput = NodePath("../Input")
+CharacterCollisionRayCast = NodePath("../CollisionRayCast")
 TargetPosition = Vector2(0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1278795589 node_paths=PackedStringArray("CharacterInput", "CharacterMovement")]
@@ -302,9 +304,11 @@ position = Vector2(8, 8)
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
-[node name="CollisionRayCast" type="RayCast2D" parent="." unique_id=1518127203]
+[node name="CollisionRayCast" type="RayCast2D" parent="." unique_id=1518127203 node_paths=PackedStringArray("CharacterInput")]
 position = Vector2(8, 8)
 target_position = Vector2(0, 16)
+script = ExtResource("6_eojnx")
+CharacterInput = NodePath("../Input")
 
 [node name="StateMachine" type="Node" parent="." unique_id=624771979 node_paths=PackedStringArray("Customer", "CurrentState")]
 script = ExtResource("5_atpat")

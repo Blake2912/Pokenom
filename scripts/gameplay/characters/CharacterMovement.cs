@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using Godot;
 using Pokenom.Scripts.Core;
 
@@ -14,12 +15,16 @@ public partial class CharacterMovement : Node
 	public Node2D Character;
 	[Export]
 	public CharacterInput CharacterInput;
+	[Export]
+	public CharacterCollisionRayCast CharacterCollisionRayCast;
 
 	[ExportCategory("Movement")]
 	[Export]
 	public Vector2 TargetPosition = Vector2.Down;
 	[Export]
 	public bool IsWalking = false;
+	[Export]
+	public bool IsCollisionDetected = false;
 
 
 
@@ -29,6 +34,8 @@ public partial class CharacterMovement : Node
 	{
 		CharacterInput.Walk += StartWalking;
 		CharacterInput.Turn += Turn;
+
+		CharacterCollisionRayCast.Collision += (val) => IsCollisionDetected = val;
 
 
 		CustomLogger.Debug("Loading player movement component...");
@@ -45,9 +52,14 @@ public partial class CharacterMovement : Node
 		return IsWalking;
 	}
 
+	public bool IsColliding()
+	{
+		return IsCollisionDetected;
+	}
+
 	public void StartWalking()
 	{
-		if (!IsMoving())
+		if (!IsMoving() && !IsColliding())
 		{
 			EmitSignal(SignalName.Animation, "walk");
 			TargetPosition = Character.Position + CharacterInput.Direction * Globals.Instance.GRID_SIZE;
