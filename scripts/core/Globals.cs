@@ -16,7 +16,7 @@ public partial class Globals : Node
 	{
 		Instance = this;
 
-		Logger.Debug("Loading Globals...");
+		CustomLogger.Debug("Loading Globals...");
 		
 	}
 }
