@@ -19,6 +19,7 @@ public partial class CharacterAnimation : AnimatedSprite2D
 
 	public override void _Ready()
 	{
+		CharacterMovement.Animation += PlayAnimation;
 		CustomLogger.Debug("Loading player animation component ...");
 	}
 

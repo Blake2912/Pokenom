@@ -54,10 +54,6 @@ public partial class CharacterMovement : Node
 			CustomLogger.Info($"Moving from {Character.Position} to {TargetPosition} ");
 			IsWalking = true;
 		}
-		else
-		{
-			EmitSignal(SignalName.Animation, "idle");
-		}
 	}
 
 	public void Walk(double delta)
@@ -73,7 +69,7 @@ public partial class CharacterMovement : Node
 		}
 		else
 		{
-			EmitSignal(SignalName.Animation, "walk");
+			EmitSignal(SignalName.Animation, "idle");
 		}	
 	}
 

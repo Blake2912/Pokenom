@@ -2,7 +2,7 @@ using Godot;
 
 namespace Pokenom.Scripts.Gameplay.Characters;
 
-public partial class CharacterInput : Node
+public abstract partial class CharacterInput : Node
 {
 	[Signal]
 	public delegate void WalkEventHandler();
