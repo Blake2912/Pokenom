@@ -299,7 +299,7 @@ CharacterMovement = NodePath("../Movement")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1803490667]
 position = Vector2(8, 8)
-zoom = Vector2(3, 3)
+zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
 [node name="CollisionRayCast" type="RayCast2D" parent="." unique_id=1518127203]
