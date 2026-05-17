@@ -93,7 +93,6 @@ public partial class CharacterAnimation : AnimatedSprite2D
 
 		if (prevAnim != ECharacterAnimation)
 		{
-			CustomLogger.Info($"Playing anim: {ECharacterAnimation.ToString()}");
 			Play(ECharacterAnimation.ToString());
 		}
 		

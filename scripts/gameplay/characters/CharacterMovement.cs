@@ -15,8 +15,6 @@ public partial class CharacterMovement : Node
 	public Node2D Character;
 	[Export]
 	public CharacterInput CharacterInput;
-	[Export]
-	public CharacterCollisionRayCast CharacterCollisionRayCast;
 
 	[ExportCategory("Movement")]
 	[Export]
@@ -34,9 +32,6 @@ public partial class CharacterMovement : Node
 	{
 		CharacterInput.Walk += StartWalking;
 		CharacterInput.Turn += Turn;
-
-		CharacterCollisionRayCast.Collision += (val) => IsCollisionDetected = val;
-
 
 		CustomLogger.Debug("Loading player movement component...");
 	}
@@ -57,12 +52,51 @@ public partial class CharacterMovement : Node
 		return IsCollisionDetected;
 	}
 
+	public bool IsTargetOccupied(Vector2 targetWorldPosition)
+	{
+		var spaceState = GetViewport().GetWorld2D().DirectSpaceState;
+
+		Vector2 adjustTargetPosition = targetWorldPosition;
+		adjustTargetPosition.X += 8;
+		adjustTargetPosition.Y += 8;
+
+		var query = new PhysicsPointQueryParameters2D
+		{
+			Position = adjustTargetPosition,
+			CollisionMask = 1,
+			CollideWithAreas = true
+		};
+
+		var result = spaceState.IntersectPoint(query);
+
+		if (result.Count > 0)
+		{
+			foreach (var collision in result)
+			{
+				var collider = (Node)(GodotObject)collision["collider"];
+				var colliderType = collider.GetType().Name;
+
+				switch (colliderType)
+				{
+					case "TimeMapLayer":
+						return true;
+					default: 
+						return true;
+				}
+
+			}
+		}
+
+		return false;
+	}
+
 	public void StartWalking()
 	{
-		if (!IsMoving() && !IsColliding())
+		TargetPosition = Character.Position + CharacterInput.Direction * Globals.Instance.GRID_SIZE;
+
+		if (!IsMoving() && !IsTargetOccupied(TargetPosition))
 		{
 			EmitSignal(SignalName.Animation, "walk");
-			TargetPosition = Character.Position + CharacterInput.Direction * Globals.Instance.GRID_SIZE;
 			CustomLogger.Info($"Moving from {Character.Position} to {TargetPosition} ");
 			IsWalking = true;
 		}

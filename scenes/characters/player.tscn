@@ -282,11 +282,10 @@ shape = SubResource("RectangleShape2D_0qees")
 [node name="Input" type="Node" parent="." unique_id=498166979]
 script = ExtResource("1_yewv4")
 
-[node name="Movement" type="Node" parent="." unique_id=1197968590 node_paths=PackedStringArray("Character", "CharacterInput", "CharacterCollisionRayCast")]
+[node name="Movement" type="Node" parent="." unique_id=1197968590 node_paths=PackedStringArray("Character", "CharacterInput")]
 script = ExtResource("2_dyp2m")
 Character = NodePath("..")
 CharacterInput = NodePath("../Input")
-CharacterCollisionRayCast = NodePath("../CollisionRayCast")
 TargetPosition = Vector2(0, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1278795589 node_paths=PackedStringArray("CharacterInput", "CharacterMovement")]
@@ -315,7 +314,8 @@ script = ExtResource("5_atpat")
 Customer = NodePath(".")
 CurrentState = NodePath("Roam")
 
-[node name="Roam" type="Node" parent="StateMachine" unique_id=567608101 node_paths=PackedStringArray("PlayerInput", "StateOwner")]
+[node name="Roam" type="Node" parent="StateMachine" unique_id=567608101 node_paths=PackedStringArray("PlayerInput", "CharacterMovement", "StateOwner")]
 script = ExtResource("6_kqtwu")
 PlayerInput = NodePath("../../Input")
+CharacterMovement = NodePath("../../Movement")
 StateOwner = NodePath("../..")

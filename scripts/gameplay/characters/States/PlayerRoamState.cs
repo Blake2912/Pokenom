@@ -11,6 +11,9 @@ public partial class PlayerRoamState : State
 	[ExportCategory("State Vars")]
 	[Export]
 	public PlayerInput PlayerInput;
+	[Export]
+	public CharacterMovement CharacterMovement;
+
 
 	public override void _Process(double delta)
 	{
@@ -45,6 +48,12 @@ public partial class PlayerRoamState : State
 
 	public void GetInput(double delta)
 	{
+
+		if (CharacterMovement.IsMoving())
+		{
+			return;
+		}
+
 		if (Modules.IsActionJustReleased())
 		{
 			if (PlayerInput.HoldTime > PlayerInput.HoldThreshold)
