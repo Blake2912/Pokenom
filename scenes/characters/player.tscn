@@ -272,6 +272,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=655268296 node_paths=PackedStringArray("StateMachine")]
+z_index = 5
 script = ExtResource("1_6eyoc")
 StateMachine = NodePath("StateMachine")
 
@@ -301,7 +302,6 @@ CharacterMovement = NodePath("../Movement")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1803490667]
 position = Vector2(8, 8)
 zoom = Vector2(5, 5)
-position_smoothing_enabled = true
 
 [node name="CollisionRayCast" type="RayCast2D" parent="." unique_id=1518127203 node_paths=PackedStringArray("CharacterInput")]
 position = Vector2(8, 8)

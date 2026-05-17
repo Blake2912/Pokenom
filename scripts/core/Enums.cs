@@ -24,3 +24,24 @@ public enum ECharacterAnimation
     walk_left,
     walk_right
 }
+
+
+public enum LevelNames
+{
+    smalltown,
+    smalltown_green_house,
+    smalltown_dr_doom_house,
+    smalltown_orange_shed,
+    smalltown_pokenom_mart,
+    smalltown_dungeon,
+    pokenom_center,
+    smalltown_phils_house,
+    smalltown_pokenom_center_first_floor
+}
+
+
+public enum LevelGroup
+{
+    SPAWNPOINTS,
+    SCENETRIGGERS
+}

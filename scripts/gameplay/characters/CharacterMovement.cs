@@ -80,6 +80,8 @@ public partial class CharacterMovement : Node
 				{
 					case "TimeMapLayer":
 						return true;
+					case "SceneTriggers":
+						return false;
 					default: 
 						return true;
 				}

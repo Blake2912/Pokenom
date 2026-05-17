@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bt3q4wtbvcctg"]
 
-[ext_resource type="PackedScene" uid="uid://dwa3bjmcd0nbd" path="res://scenes/levels/smalltown.tscn" id="1_x6flg"]
+[ext_resource type="Script" uid="uid://d3qosn6ds71ri" path="res://scripts/core/GameManager.cs" id="1_lv3y2"]
 
-[node name="GameManager" type="Node" unique_id=1046915009]
+[node name="GameManager" type="Node" unique_id=1046915009 node_paths=PackedStringArray("GameViewPort")]
+script = ExtResource("1_lv3y2")
+GameViewPort = NodePath("Control/SubViewportContainer/SubViewport")
 
 [node name="Control" type="Control" parent="." unique_id=966391770]
 layout_mode = 3
@@ -27,5 +29,3 @@ size = Vector2i(1152, 648)
 size_2d_override = Vector2i(1152, 648)
 size_2d_override_stretch = true
 render_target_update_mode = 4
-
-[node name="Level" parent="Control/SubViewportContainer/SubViewport" unique_id=1629823610 instance=ExtResource("1_x6flg")]

@@ -1,12 +1,17 @@
 [gd_scene format=4 uid="uid://dwa3bjmcd0nbd"]
 
+[ext_resource type="Script" uid="uid://dnhuyb7ewnra0" path="res://scripts/gameplay/levels/Level.cs" id="1_m8cfg"]
 [ext_resource type="TileSet" uid="uid://5y40d730pam0" path="res://resources/tilesets/level.tres" id="1_t5hxc"]
-[ext_resource type="PackedScene" uid="uid://ntnc2md7dk5m" path="res://scenes/characters/player.tscn" id="2_m8cfg"]
+[ext_resource type="PackedScene" uid="uid://b70e64alews3l" path="res://scenes/levels/spawn_point.tscn" id="3_de1hm"]
+[ext_resource type="PackedScene" uid="uid://deax6ggwm74mf" path="res://scenes/levels/scene_triggers.tscn" id="4_peqvl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8cfg"]
 size = Vector2(26, 40)
 
 [node name="Level" type="Node2D" unique_id=1629823610]
+script = ExtResource("1_m8cfg")
+Bottom = 320
+Right = 530
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1869027695]
 
@@ -43,9 +48,6 @@ tile_set = ExtResource("1_t5hxc")
 tile_map_data = PackedByteArray("AAAUAAEAAQAGAAAAAAAUAAIAAQAGAAEAAAAUAAMAAQADAAIAAAAUAAQAAQADAAIAAAAUAAUAAQADAAIAAAAUAAYAAQADAAIAAAAUAAcAAQADAAIAAAAWAAIAAQADAAIAAAAWAAMAAQADAAIAAAAbAAIAAQADAAIAAAAbAAMAAQADAAIAAAACAAwAAQAmAAAAAAACAAIAAQAeAAEAAAAIAAYAAQAUAAAAAAACAAYAAQAUAAAAAAAFAAIAAQAUAAEAAAAOAAIAAQAUAAEAAAAGAAIAAQAVAAEAAAAPAAIAAQATAAEAAAALAAQAAQATAAIAAAALAAMAAQATAAIAAAAKAAMAAQATAAIAAAAKAAQAAQATAAIAAAAMAAMAAQAVAAEAAAALAAIAAQAVAAEAAAAMAAQAAQAVAAEAAAALAAUAAQAVAAEAAAAKAAIAAQACAAIAAAAKAAUAAQACAAIAAAASAAIAAQACAAIAAAAIAAIAAQACAAIAAAAQAAwAAQAEAAEAAAAWAAQAAQADAAIAAAAbAAQAAQAAABwAAAAWAAYAAQAAABwAAAAWAAUAAQAGAAEAAAAUAA4AAQAeAAQAAAAUAA8AAQAeAAUAAAAWAA4AAQAeAAQAAAAWAA8AAQAeAAUAAAAVAA4AAQAeAAQAAAAVAA8AAQAeAAUAAAAbAAoAAQAuAAAAAAAbAAsAAQAuAAEAAAAbAAwAAQAuAAIAAAAeAAoAAQAwAAAAAAAeAAsAAQAwAAEAAAAeAAwAAQAwAAIAAAAcAAoAAQAvAAAAAAAcAAsAAQAvAAEAAAAcAAwAAQAvAAIAAAAdAAoAAQAvAAAAAAAdAAsAAQAvAAEAAAAdAAwAAQAvAAIAAAAcAAIAAQADAAIAAAAcAAMAAQADAAIAAAAdAAMAAQADAAIAAAAdAAIAAQADAAIAAAAfAAIAAQADAAIAAAAeAAMAAQADAAIAAAAfAAMAAQADAAIAAAAeAAIAAQADAAIAAAAcAAQAAQADAAIAAAAdAAQAAQADAAIAAAAeAAQAAQADAAIAAAAfAAQAAQADAAIAAAAfAAUAAQADAAIAAAAfAAYAAQADAAIAAAAfAAcAAQADAAIAAAAfAAgAAQADAAIAAAAfAAkAAQADAAIAAAAfAAoAAQADAAIAAAAZAAcAAQADAAIAAAAZAAgAAQADAAIAAAAZAAkAAQADAAIAAAAZAAoAAQADAAIAAAAaAAkAAQADAAIAAAAaAAoAAQADAAIAAAACAAQAAQAmAAAAAAAIAAUAAQAAABwAAAASAAYAAQAAABwAAAAMAAYAAQAAABwAAAA=")
 tile_set = ExtResource("1_t5hxc")
 
-[node name="Player" parent="." unique_id=655268296 instance=ExtResource("2_m8cfg")]
-position = Vector2(144, 144)
-
 [node name="LeftMostBoundary" type="Node2D" parent="." unique_id=1121625620]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="LeftMostBoundary" unique_id=344979948]
@@ -53,3 +55,52 @@ position = Vector2(144, 144)
 [node name="LeftMostBounderyCollider" type="CollisionShape2D" parent="LeftMostBoundary/StaticBody2D" unique_id=322875482]
 position = Vector2(-13, 148)
 shape = SubResource("RectangleShape2D_m8cfg")
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=335417714]
+
+[node name="SpawnPoint" parent="SpawnPoint" unique_id=589393623 instance=ExtResource("3_de1hm")]
+position = Vector2(152, 144)
+
+[node name="SceneTriggers" type="Node2D" parent="." unique_id=1912264583]
+
+[node name="GreensHouseTrigger" parent="SceneTriggers" unique_id=2103678263 instance=ExtResource("4_peqvl")]
+position = Vector2(64, 112)
+TargetLevelName = 1
+EntryDirection = Vector2(0, 1)
+
+[node name="DrDoomHouseTrigger" parent="SceneTriggers" unique_id=2119229854 instance=ExtResource("4_peqvl")]
+position = Vector2(224, 96)
+TargetLevelName = 2
+CurrentLevelTrigger = 1
+EntryDirection = Vector2(0, 1)
+
+[node name="PokenomMartTrigger" parent="SceneTriggers" unique_id=2110318793 instance=ExtResource("4_peqvl")]
+position = Vector2(353, 176)
+TargetLevelName = 4
+CurrentLevelTrigger = 2
+EntryDirection = Vector2(0, 1)
+
+[node name="OrangeShedTrigger" parent="SceneTriggers" unique_id=1553061517 instance=ExtResource("4_peqvl")]
+position = Vector2(384, 64)
+TargetLevelName = 3
+CurrentLevelTrigger = 3
+EntryDirection = Vector2(0, 1)
+
+[node name="PokenomCenterTrigger" parent="SceneTriggers" unique_id=1052941641 instance=ExtResource("4_peqvl")]
+position = Vector2(80, 208)
+TargetLevelName = 6
+CurrentLevelTrigger = 4
+EntryDirection = Vector2(0, 1)
+
+[node name="DungeonTrigger" parent="SceneTriggers" unique_id=293340425 instance=ExtResource("4_peqvl")]
+position = Vector2(464, 112)
+TargetLevelName = 5
+CurrentLevelTrigger = 5
+EntryDirection = Vector2(0, 1)
+
+[node name="PhillsHouseTrigger" parent="SceneTriggers" unique_id=240520029 instance=ExtResource("4_peqvl")]
+position = Vector2(192, 208)
+TargetLevelName = 7
+CurrentLevelTrigger = 6
+EntryDirection = Vector2(0, 1)
+Locked = true
