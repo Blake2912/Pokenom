@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://deax6ggwm74mf" path="res://scenes/levels/scene_triggers.tscn" id="4_peqvl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8cfg"]
-size = Vector2(26, 40)
+size = Vector2(26, 88)
 
 [node name="Level" type="Node2D" unique_id=1629823610]
 script = ExtResource("1_m8cfg")
@@ -53,7 +53,7 @@ tile_set = ExtResource("1_t5hxc")
 [node name="StaticBody2D" type="StaticBody2D" parent="LeftMostBoundary" unique_id=344979948]
 
 [node name="LeftMostBounderyCollider" type="CollisionShape2D" parent="LeftMostBoundary/StaticBody2D" unique_id=322875482]
-position = Vector2(-13, 148)
+position = Vector2(-13, 140)
 shape = SubResource("RectangleShape2D_m8cfg")
 
 [node name="SpawnPoint" type="Node2D" parent="." unique_id=335417714]

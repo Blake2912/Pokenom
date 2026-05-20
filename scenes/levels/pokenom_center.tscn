@@ -5,17 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://deax6ggwm74mf" path="res://scenes/levels/scene_triggers.tscn" id="2_i0n7t"]
 [ext_resource type="PackedScene" uid="uid://b70e64alews3l" path="res://scenes/levels/spawn_point.tscn" id="3_8nq3l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq3l"]
-size = Vector2(8, 144)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2pih"]
-size = Vector2(112, 8)
+size = Vector2(120, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_me8s1"]
-size = Vector2(112, 8)
+size = Vector2(124, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4fvx"]
-size = Vector2(8, 144)
+size = Vector2(16, 144)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nq3l"]
+size = Vector2(16, 144)
 
 [node name="Level" type="Node2D" unique_id=588943904]
 script = ExtResource("1_n2pih")
@@ -38,6 +38,7 @@ TargetLevelTrigger = 4
 EntryDirection = Vector2(0, -1)
 
 [node name="PokenomCenterFirstFloorTrigger" parent="SceneTriggers" unique_id=786367251 instance=ExtResource("2_i0n7t")]
+position = Vector2(0, 88)
 TargetLevelName = 8
 TargetLevelTrigger = 1
 EntryDirection = Vector2(-1, 0)
@@ -47,36 +48,28 @@ EntryDirection = Vector2(-1, 0)
 [node name="SpawnPoint" parent="SpawnPoint" unique_id=589393623 instance=ExtResource("3_8nq3l")]
 position = Vector2(120, 136)
 
-[node name="Boundaries" type="Node2D" parent="." unique_id=1280821749]
+[node name="Walls" type="Node" parent="." unique_id=1860565433]
 
-[node name="Left Boundary" type="Node2D" parent="Boundaries" unique_id=929504650]
+[node name="BottomBoundary1" type="StaticBody2D" parent="Walls" unique_id=1445913665]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries/Left Boundary" unique_id=2113942683]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Left Boundary/StaticBody2D" unique_id=1332680072]
-position = Vector2(-4, 72)
-shape = SubResource("RectangleShape2D_8nq3l")
-
-[node name="BottomBoundary1" type="Node2D" parent="Boundaries" unique_id=272333498]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries/BottomBoundary1" unique_id=1445913665]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomBoundary1/StaticBody2D" unique_id=1497009766]
-position = Vector2(56, 148)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomBoundary1" unique_id=1497009766]
+position = Vector2(52, 153)
 shape = SubResource("RectangleShape2D_n2pih")
 
-[node name="BottomBoundary2" type="Node2D" parent="Boundaries" unique_id=1837971]
+[node name="BottomBoundary2" type="StaticBody2D" parent="Walls" unique_id=1386156525]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries/BottomBoundary2" unique_id=1269691722]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomBoundary2/StaticBody2D" unique_id=1202552967]
-position = Vector2(184, 148)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomBoundary2" unique_id=325062828]
+position = Vector2(190, 152)
 shape = SubResource("RectangleShape2D_me8s1")
 
-[node name="RightBoundary" type="Node2D" parent="Boundaries" unique_id=698109699]
+[node name="RightBoundary" type="StaticBody2D" parent="Walls" unique_id=1935780871]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries/RightBoundary" unique_id=1935780871]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightBoundary/StaticBody2D" unique_id=1914909912]
-position = Vector2(244, 72)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightBoundary" unique_id=1914909912]
+position = Vector2(248, 72)
 shape = SubResource("RectangleShape2D_m4fvx")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="Walls" unique_id=2113942683]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftBoundary" unique_id=1332680072]
+position = Vector2(-8, 72)
+shape = SubResource("RectangleShape2D_8nq3l")
