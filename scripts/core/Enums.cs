@@ -36,7 +36,7 @@ public enum LevelNames
     smalltown_dungeon,
     pokenom_center,
     smalltown_phils_house,
-    smalltown_pokenom_center_first_floor
+    pokenom_center_first_floor
 }
 
 

@@ -16,6 +16,10 @@ public partial class SceneTriggers : Area2D
 	public int CurrentLevelTrigger = 0;
 	[Export]
 	public Vector2 EntryDirection;
+
+	[Export]
+	public Marker2D SpawnPoint;
+	
 	[Export]
 	public bool Locked = false;
 
@@ -27,7 +31,7 @@ public partial class SceneTriggers : Area2D
 
 	public void OnBodyEntered(Node2D body)
 	{
-		if (body.Name != "Player")
+		if (body.Name != "Player" || SceneManager.IsChanging)
 		{
 			return;
 		}

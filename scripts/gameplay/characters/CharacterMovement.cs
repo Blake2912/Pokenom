@@ -24,6 +24,8 @@ public partial class CharacterMovement : Node
 	[Export]
 	public bool IsCollisionDetected = false;
 
+	private bool _wasWalking;
+
 
 
 
@@ -92,6 +94,34 @@ public partial class CharacterMovement : Node
 		return false;
 	}
 
+	public void CancelMovement()
+	{
+		IsWalking = false;
+		_wasWalking = false;
+	}
+
+	public void SetFacingDirection(Vector2 direction)
+	{
+		if (direction == Vector2.Zero)
+		{
+			return;
+		}
+
+		CharacterInput.Direction = ToCardinalDirection(direction);
+		EmitSignal(SignalName.Animation, "idle");
+	}
+
+	public void StartWalkingInDirection(Vector2 direction)
+	{
+		if (direction == Vector2.Zero)
+		{
+			return;
+		}
+
+		CharacterInput.Direction = ToCardinalDirection(direction);
+		StartWalking();
+	}
+
 	public void StartWalking()
 	{
 		TargetPosition = Character.Position + CharacterInput.Direction * Globals.Instance.GRID_SIZE;
@@ -104,10 +134,22 @@ public partial class CharacterMovement : Node
 		}
 	}
 
+	private static Vector2 ToCardinalDirection(Vector2 direction)
+	{
+		direction = direction.Normalized();
+		if (Mathf.Abs(direction.X) > Mathf.Abs(direction.Y))
+		{
+			return new Vector2(Mathf.Sign(direction.X), 0);
+		}
+
+		return new Vector2(0, Mathf.Sign(direction.Y));
+	}
+
 	public void Walk(double delta)
 	{
 		if (IsWalking)
 		{
+			_wasWalking = true;
 			Character.Position = Character.Position.MoveToward(TargetPosition, (float)delta * Globals.Instance.GRID_SIZE * 4);
 
 			if (Character.Position.DistanceTo(TargetPosition) < 1f)
@@ -115,17 +157,18 @@ public partial class CharacterMovement : Node
 				StopWalking();
 			}
 		}
-		else
+		else if (_wasWalking)
 		{
+			_wasWalking = false;
 			EmitSignal(SignalName.Animation, "idle");
-		}	
+		}
 	}
 
 
 	public void StopWalking()
 	{
 		IsWalking = false;
-		SnapPositionToGrid();
+		Character.Position = TargetPosition;
 	}
 
 	public void Turn()
