@@ -22,6 +22,8 @@ public partial class SceneManager : Node
 
 	[Export]
 	public Array<Level> AllLevels;
+
+	private Vector2 _pendingEntryDirection = Vector2.Zero;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -53,6 +55,11 @@ public partial class SceneManager : Node
 		}
 
 		await Instance.FadeIn();
+
+		if (!spawn)
+		{
+			await Instance.PlayEntryWalk();
+		}
 
 		IsChanging = false;
 
@@ -91,8 +98,11 @@ public partial class SceneManager : Node
 
 		var spawnPoint = (SpawnPoint)spawnPoints[0];
 		var player = GD.Load<PackedScene>("res://scenes/characters/player.tscn").Instantiate<Player>();
-
-		GameManager.AddPlayer(player).Position = spawnPoint.Position;
+		player = GameManager.AddPlayer(player);
+		var movement = player.GetNode<CharacterMovement>("Movement");
+		movement.CancelMovement();
+		player.Position = spawnPoint.Position;
+		movement.SnapPositionToGrid();
 	}
 
 	public void Switch(int trigger)
@@ -108,7 +118,32 @@ public partial class SceneManager : Node
 			throw new Exception ($"Missing scene trigger {trigger}");
 		}
 
-		GameManager.GetPlayer().Position = sceneTrigger.Position + sceneTrigger.EntryDirection * Globals.Instance.GRID_SIZE;
+		var player = GameManager.GetPlayer();
+		var movement = player.GetNode<CharacterMovement>("Movement");
+		movement.CancelMovement();
+		player.Position = sceneTrigger.SpawnPoint.GlobalPosition;
+		movement.SnapPositionToGrid();
+		_pendingEntryDirection = sceneTrigger.EntryDirection;
+		movement.SetFacingDirection(_pendingEntryDirection);
+	}
+
+	public async Task PlayEntryWalk()
+	{
+		if (_pendingEntryDirection == Vector2.Zero)
+		{
+			return;
+		}
+
+		var direction = _pendingEntryDirection;
+		_pendingEntryDirection = Vector2.Zero;
+
+		var movement = GameManager.GetPlayer().GetNode<CharacterMovement>("Movement");
+		movement.StartWalkingInDirection(direction);
+
+		while (movement.IsMoving())
+		{
+			await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+		}
 	}
 
 	public async Task FadeOut()

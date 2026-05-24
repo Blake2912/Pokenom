@@ -27,7 +27,7 @@ public partial class CharacterAnimation : AnimatedSprite2D
 	{
 		ECharacterAnimation prevAnim = ECharacterAnimation;
 
-		if (CharacterMovement.IsMoving())
+		if (CharacterMovement.IsMoving() && animationType != "walk")
 		{
 			return;
 		}

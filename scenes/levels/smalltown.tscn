@@ -86,11 +86,15 @@ TargetLevelName = 3
 CurrentLevelTrigger = 3
 EntryDirection = Vector2(0, 1)
 
-[node name="PokenomCenterTrigger" parent="SceneTriggers" unique_id=1052941641 instance=ExtResource("4_peqvl")]
+[node name="PokenomCenterTrigger" parent="SceneTriggers" unique_id=1052941641 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_peqvl")]
 position = Vector2(80, 208)
 TargetLevelName = 6
 CurrentLevelTrigger = 4
 EntryDirection = Vector2(0, 1)
+SpawnPoint = NodePath("SpawnBackInSmallTown")
+
+[node name="SpawnBackInSmallTown" type="Marker2D" parent="SceneTriggers/PokenomCenterTrigger" unique_id=179161460]
+position = Vector2(8, 16)
 
 [node name="DungeonTrigger" parent="SceneTriggers" unique_id=293340425 instance=ExtResource("4_peqvl")]
 position = Vector2(464, 112)

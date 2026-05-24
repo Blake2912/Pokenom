@@ -17,6 +17,11 @@ public partial class PlayerRoamState : State
 
 	public override void _Process(double delta)
 	{
+		if (SceneManager.IsChanging)
+		{
+			return;
+		}
+
 		GetInputDirection();
 		GetInput(delta);
 	}
@@ -48,7 +53,6 @@ public partial class PlayerRoamState : State
 
 	public void GetInput(double delta)
 	{
-
 		if (CharacterMovement.IsMoving())
 		{
 			return;
