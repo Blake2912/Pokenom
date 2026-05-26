@@ -9,6 +9,7 @@
 size = Vector2(26, 88)
 
 [node name="Level" type="Node2D" unique_id=1629823610]
+position = Vector2(16, 16)
 script = ExtResource("1_m8cfg")
 Bottom = 320
 Right = 530
@@ -85,7 +86,7 @@ SpawnPoint = NodePath("SpawnBackInSmallTown")
 position = Vector2(-8, 8)
 
 [node name="OrangeShedTrigger" parent="SceneTriggers" unique_id=1553061517 instance=ExtResource("4_peqvl")]
-position = Vector2(384, 64)
+position = Vector2(392, 72)
 TargetLevelName = 3
 CurrentLevelTrigger = 3
 EntryDirection = Vector2(0, 1)
@@ -101,7 +102,7 @@ SpawnPoint = NodePath("SpawnBackInSmallTown")
 position = Vector2(-8, 16)
 
 [node name="DungeonTrigger" parent="SceneTriggers" unique_id=293340425 instance=ExtResource("4_peqvl")]
-position = Vector2(464, 112)
+position = Vector2(472, 120)
 TargetLevelName = 5
 CurrentLevelTrigger = 5
 EntryDirection = Vector2(0, 1)
