@@ -33,13 +33,13 @@ tile_set = ExtResource("1_njja6")
 [node name="SceneTriggers" type="Node2D" parent="." unique_id=879782321]
 
 [node name="SmallTownTrigger" parent="SceneTriggers" unique_id=2103678263 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("2_i0n7t")]
-position = Vector2(112, 144)
+position = Vector2(104, 144)
 TargetLevelTrigger = 4
 EntryDirection = Vector2(0, -1)
 SpawnPoint = NodePath("SpawnFromOutside")
 
 [node name="SpawnFromOutside" type="Marker2D" parent="SceneTriggers/SmallTownTrigger" unique_id=167834114]
-position = Vector2(8, -16)
+position = Vector2(8, -8)
 rotation = 3.1415927
 
 [node name="PokenomCenterFirstFloorTrigger" parent="SceneTriggers" unique_id=786367251 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("2_i0n7t")]
