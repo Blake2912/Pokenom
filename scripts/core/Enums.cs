@@ -32,7 +32,7 @@ public enum LevelNames
     smalltown_green_house,
     smalltown_dr_doom_house,
     smalltown_orange_shed,
-    smalltown_pokenom_mart,
+    pokemart,
     smalltown_dungeon,
     pokenom_center,
     smalltown_phils_house,

@@ -1,0 +1,36 @@
+[gd_scene format=4 uid="uid://b24uf2vlnacjp"]
+
+[ext_resource type="Script" uid="uid://dnhuyb7ewnra0" path="res://scripts/gameplay/levels/Level.cs" id="1_r05tl"]
+[ext_resource type="TileSet" uid="uid://5y40d730pam0" path="res://resources/tilesets/level.tres" id="1_utsvb"]
+[ext_resource type="PackedScene" uid="uid://b70e64alews3l" path="res://scenes/levels/spawn_point.tscn" id="2_bg0ty"]
+[ext_resource type="PackedScene" uid="uid://deax6ggwm74mf" path="res://scenes/levels/scene_triggers.tscn" id="4_cpdy7"]
+
+[node name="Level" type="Node2D" unique_id=1338073789]
+script = ExtResource("1_r05tl")
+LevelName = 4
+Bottom = 130
+Right = 176
+
+[node name="Tiles" type="Node2D" parent="." unique_id=392534381]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Tiles" unique_id=1843647849]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAAAAwAVACUAAAAAAAEAAwAVACYAAAAAAAIAAwAVACcAAAAAAAMAAwAVACgAAAAAAAQAAwAVACkAAAAAAAUAAwAVACoAAAAAAAYAAwAVACsAAAAAAAcAAwAVACwAAAAAAAgAAwAVAC0AAAABAAAAAwAWACUAAAABAAEAAwAWACYAAAABAAIAAwAWACcAAAABAAMAAwAWACgAAAABAAQAAwAWACkAAAABAAUAAwAWACoAAAABAAYAAwAWACsAAAABAAcAAwAWACwAAAABAAgAAwAWAC0AAAACAAAAAwAXACUAAAACAAEAAwAXACYAAAACAAIAAwAXACcAAAACAAMAAwAXACgAAAACAAQAAwAXACkAAAACAAUAAwAXACoAAAACAAYAAwAXACsAAAACAAcAAwAXACwAAAACAAgAAwAXAC0AAAADAAAAAwAYACUAAAADAAEAAwAYACYAAAADAAIAAwAYACcAAAADAAMAAwAYACgAAAADAAQAAwAYACkAAAADAAUAAwAYACoAAAADAAYAAwAYACsAAAADAAcAAwAYACwAAAADAAgAAwAYAC0AAAAEAAAAAwAZACUAAAAEAAEAAwAZACYAAAAEAAIAAwAZACcAAAAEAAMAAwAZACgAAAAEAAQAAwAZACkAAAAEAAUAAwAZACoAAAAEAAYAAwAZACsAAAAEAAcAAwAZACwAAAAEAAgAAwAZAC0AAAAFAAAAAwAaACUAAAAFAAEAAwAaACYAAAAFAAIAAwAaACcAAAAFAAMAAwAaACgAAAAFAAQAAwAaACkAAAAFAAUAAwAaACoAAAAFAAYAAwAaACsAAAAFAAcAAwAaACwAAAAFAAgAAwAaAC0AAAAGAAAAAwAbACUAAAAGAAEAAwAbACYAAAAGAAIAAwAbACcAAAAGAAMAAwAbACgAAAAGAAQAAwAbACkAAAAGAAUAAwAbACoAAAAGAAYAAwAbACsAAAAGAAcAAwAbACwAAAAGAAgAAwAbAC0AAAAHAAAAAwAcACUAAAAHAAEAAwAcACYAAAAHAAIAAwAcACcAAAAHAAMAAwAcACgAAAAHAAQAAwAcACkAAAAHAAUAAwAcACoAAAAHAAYAAwAcACsAAAAHAAcAAwAcACwAAAAHAAgAAwAcAC0AAAAIAAAAAwAdACUAAAAIAAEAAwAdACYAAAAIAAIAAwAdACcAAAAIAAMAAwAdACgAAAAIAAQAAwAdACkAAAAIAAUAAwAdACoAAAAIAAYAAwAdACsAAAAIAAcAAwAdACwAAAAIAAgAAwAdAC0AAAAJAAAAAwAeACUAAAAJAAEAAwAeACYAAAAJAAIAAwAeACcAAAAJAAMAAwAeACgAAAAJAAQAAwAeACkAAAAJAAUAAwAeACoAAAAJAAYAAwAeACsAAAAJAAcAAwAeACwAAAAJAAgAAwAeAC0AAAAKAAAAAwAfACUAAAAKAAEAAwAfACYAAAAKAAIAAwAfACcAAAAKAAMAAwAfACgAAAAKAAQAAwAfACkAAAAKAAUAAwAfACoAAAAKAAYAAwAfACsAAAAKAAcAAwAfACwAAAAKAAgAAwAfAC0AAAA=")
+tile_set = ExtResource("1_utsvb")
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=193747501]
+
+[node name="SpawnPoint" parent="SpawnPoint" unique_id=589393623 instance=ExtResource("2_bg0ty")]
+position = Vector2(88, 88)
+
+[node name="SceneTriggers" type="Node2D" parent="." unique_id=1770110521]
+
+[node name="SmallTownTrigger" parent="SceneTriggers" unique_id=2103678263 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_cpdy7")]
+position = Vector2(72, 136)
+TargetLevelTrigger = 2
+EntryDirection = Vector2(0, -1)
+SpawnPoint = NodePath("SpawnFromOutside")
+
+[node name="SpawnFromOutside" type="Marker2D" parent="SceneTriggers/SmallTownTrigger" unique_id=1830850955]
+position = Vector2(-8, -16)
+rotation = 3.1415927
