@@ -3020,6 +3020,7 @@ margins = Vector2i(0, 8)
 28:5/0 = 0
 27:5/0 = 0
 26:5/0 = 0
+19:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xww2a"]
 texture = ExtResource("2_ohrjv")

@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8cfg"]
 size = Vector2(26, 88)
 
-[node name="Level" type="Node2D" unique_id=1629823610]
+[node name="Level2" type="Node2D" unique_id=1629823610]
 script = ExtResource("1_m8cfg")
 Bottom = 320
 Right = 530
@@ -64,18 +64,18 @@ position = Vector2(152, 144)
 [node name="SceneTriggers" type="Node2D" parent="." unique_id=1912264583]
 
 [node name="GreensHouseTrigger" parent="SceneTriggers" unique_id=2103678263 instance=ExtResource("4_peqvl")]
-position = Vector2(64, 112)
+position = Vector2(72, 120)
 TargetLevelName = 1
 EntryDirection = Vector2(0, 1)
 
 [node name="DrDoomHouseTrigger" parent="SceneTriggers" unique_id=2119229854 instance=ExtResource("4_peqvl")]
-position = Vector2(224, 96)
+position = Vector2(232, 104)
 TargetLevelName = 2
 CurrentLevelTrigger = 1
 EntryDirection = Vector2(0, 1)
 
 [node name="PokenomMartTrigger" parent="SceneTriggers" unique_id=2110318793 instance=ExtResource("4_peqvl")]
-position = Vector2(353, 176)
+position = Vector2(360, 184)
 TargetLevelName = 4
 CurrentLevelTrigger = 2
 EntryDirection = Vector2(0, 1)
@@ -87,14 +87,14 @@ CurrentLevelTrigger = 3
 EntryDirection = Vector2(0, 1)
 
 [node name="PokenomCenterTrigger" parent="SceneTriggers" unique_id=1052941641 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_peqvl")]
-position = Vector2(80, 208)
+position = Vector2(88, 216)
 TargetLevelName = 6
 CurrentLevelTrigger = 4
 EntryDirection = Vector2(0, 1)
 SpawnPoint = NodePath("SpawnBackInSmallTown")
 
 [node name="SpawnBackInSmallTown" type="Marker2D" parent="SceneTriggers/PokenomCenterTrigger" unique_id=179161460]
-position = Vector2(8, 16)
+position = Vector2(-8, 16)
 
 [node name="DungeonTrigger" parent="SceneTriggers" unique_id=293340425 instance=ExtResource("4_peqvl")]
 position = Vector2(464, 112)
@@ -103,7 +103,7 @@ CurrentLevelTrigger = 5
 EntryDirection = Vector2(0, 1)
 
 [node name="PhillsHouseTrigger" parent="SceneTriggers" unique_id=240520029 instance=ExtResource("4_peqvl")]
-position = Vector2(192, 208)
+position = Vector2(200, 216)
 TargetLevelName = 7
 CurrentLevelTrigger = 6
 EntryDirection = Vector2(0, 1)
