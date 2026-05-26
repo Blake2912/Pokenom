@@ -103,6 +103,14 @@ public partial class SceneManager : Node
 		movement.CancelMovement();
 		player.Position = spawnPoint.Position;
 		movement.SnapPositionToGrid();
+
+		var camera = player.GetNode<Camera2D>("Camera2D");
+
+		camera.LimitBottom = CurrentLevel.Bottom;
+		camera.LimitTop = CurrentLevel.Top;
+		camera.LimitLeft = CurrentLevel.Left;
+		camera.LimitRight = CurrentLevel.Right;
+
 	}
 
 	public void Switch(int trigger)
@@ -125,6 +133,14 @@ public partial class SceneManager : Node
 		movement.SnapPositionToGrid();
 		_pendingEntryDirection = sceneTrigger.EntryDirection;
 		movement.SetFacingDirection(_pendingEntryDirection);
+
+		var camera = player.GetNode<Camera2D>("Camera2D");
+
+		camera.LimitBottom = CurrentLevel.Bottom;
+		camera.LimitTop = CurrentLevel.Top;
+		camera.LimitLeft = CurrentLevel.Left;
+		camera.LimitRight = CurrentLevel.Right;
+
 	}
 
 	public async Task PlayEntryWalk()
