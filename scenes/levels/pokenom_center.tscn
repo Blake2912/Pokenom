@@ -46,7 +46,7 @@ rotation = 3.1415927
 position = Vector2(8, 96)
 TargetLevelName = 8
 CurrentLevelTrigger = 1
-EntryDirection = Vector2(-1, 0)
+EntryDirection = Vector2(1, 0)
 SpawnPoint = NodePath("SpawnFromFirstFloor")
 
 [node name="SpawnFromFirstFloor" type="Marker2D" parent="SceneTriggers/PokenomCenterFirstFloorTrigger" unique_id=1543745993]

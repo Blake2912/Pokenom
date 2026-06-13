@@ -9,7 +9,6 @@
 size = Vector2(26, 88)
 
 [node name="Level" type="Node2D" unique_id=1629823610]
-position = Vector2(16, 16)
 script = ExtResource("1_m8cfg")
 Bottom = 320
 Right = 530
