@@ -4,6 +4,24 @@
 [ext_resource type="TileSet" uid="uid://5y40d730pam0" path="res://resources/tilesets/level.tres" id="1_utsvb"]
 [ext_resource type="PackedScene" uid="uid://b70e64alews3l" path="res://scenes/levels/spawn_point.tscn" id="2_bg0ty"]
 [ext_resource type="PackedScene" uid="uid://deax6ggwm74mf" path="res://scenes/levels/scene_triggers.tscn" id="4_cpdy7"]
+[ext_resource type="Texture2D" uid="uid://d05kpv00vsik2" path="res://assets/items/pokemart/table/pokemart_table_top.png" id="5_3atna"]
+[ext_resource type="Texture2D" uid="uid://beag4emkm5a5d" path="res://assets/items/pokemart/table/pokenom_table_bottom.png" id="6_dukoh"]
+[ext_resource type="Texture2D" uid="uid://ckunxtvjgfpkh" path="res://assets/items/pokemart/shelf/pokemart_shelf_top.png" id="7_3atna"]
+[ext_resource type="Texture2D" uid="uid://bypuue07nipvu" path="res://assets/items/pokemart/shelf/pokemart_shelf_bottom.png" id="8_dukoh"]
+[ext_resource type="Texture2D" uid="uid://bbclnkdnr4px2" path="res://assets/items/pokemart/shelf/pokemart_side_shelf_bottom.png" id="9_urggu"]
+[ext_resource type="Texture2D" uid="uid://dj7r18mrwssaw" path="res://assets/items/pokemart/shelf/pokemart_side_shelf_top.png" id="10_h3ec2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8m3qy"]
+size = Vector2(32, 14.769232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urggu"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkn1v"]
+size = Vector2(16, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3ec2"]
+size = Vector2(40, 144)
 
 [node name="Level" type="Node2D" unique_id=1338073789]
 script = ExtResource("1_r05tl")
@@ -15,7 +33,7 @@ Right = 176
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tiles" unique_id=1843647849]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAAAAAAAwAVACUAAAAAAAEAAwAVACYAAAAAAAIAAwAVACcAAAAAAAMAAwAVACgAAAAAAAQAAwAVACkAAAAAAAUAAwAVACoAAAAAAAYAAwAVACsAAAAAAAcAAwAVACwAAAAAAAgAAwAVAC0AAAABAAAAAwAWACUAAAABAAEAAwAWACYAAAABAAIAAwAWACcAAAABAAMAAwAWACgAAAABAAQAAwAWACkAAAABAAUAAwAWACoAAAABAAYAAwAWACsAAAABAAcAAwAWACwAAAABAAgAAwAWAC0AAAACAAAAAwAXACUAAAACAAEAAwAXACYAAAACAAIAAwAXACcAAAACAAMAAwAXACgAAAACAAQAAwAXACkAAAACAAUAAwAXACoAAAACAAYAAwAXACsAAAACAAcAAwAXACwAAAACAAgAAwAXAC0AAAADAAAAAwAYACUAAAADAAEAAwAYACYAAAADAAIAAwAYACcAAAADAAMAAwAYACgAAAADAAQAAwAYACkAAAADAAUAAwAYACoAAAADAAYAAwAYACsAAAADAAcAAwAYACwAAAADAAgAAwAYAC0AAAAEAAAAAwAZACUAAAAEAAEAAwAZACYAAAAEAAIAAwAZACcAAAAEAAMAAwAZACgAAAAEAAQAAwAZACkAAAAEAAUAAwAZACoAAAAEAAYAAwAZACsAAAAEAAcAAwAZACwAAAAEAAgAAwAZAC0AAAAFAAAAAwAaACUAAAAFAAEAAwAaACYAAAAFAAIAAwAaACcAAAAFAAMAAwAaACgAAAAFAAQAAwAaACkAAAAFAAUAAwAaACoAAAAFAAYAAwAaACsAAAAFAAcAAwAaACwAAAAFAAgAAwAaAC0AAAAGAAAAAwAbACUAAAAGAAEAAwAbACYAAAAGAAIAAwAbACcAAAAGAAMAAwAbACgAAAAGAAQAAwAbACkAAAAGAAUAAwAbACoAAAAGAAYAAwAbACsAAAAGAAcAAwAbACwAAAAGAAgAAwAbAC0AAAAHAAAAAwAcACUAAAAHAAEAAwAcACYAAAAHAAIAAwAcACcAAAAHAAMAAwAcACgAAAAHAAQAAwAcACkAAAAHAAUAAwAcACoAAAAHAAYAAwAcACsAAAAHAAcAAwAcACwAAAAHAAgAAwAcAC0AAAAIAAAAAwAdACUAAAAIAAEAAwAdACYAAAAIAAIAAwAdACcAAAAIAAMAAwAdACgAAAAIAAQAAwAdACkAAAAIAAUAAwAdACoAAAAIAAYAAwAdACsAAAAIAAcAAwAdACwAAAAIAAgAAwAdAC0AAAAJAAAAAwAeACUAAAAJAAEAAwAeACYAAAAJAAIAAwAeACcAAAAJAAMAAwAeACgAAAAJAAQAAwAeACkAAAAJAAUAAwAeACoAAAAJAAYAAwAeACsAAAAJAAcAAwAeACwAAAAJAAgAAwAeAC0AAAAKAAAAAwAfACUAAAAKAAEAAwAfACYAAAAKAAIAAwAfACcAAAAKAAMAAwAfACgAAAAKAAQAAwAfACkAAAAKAAUAAwAfACoAAAAKAAYAAwAfACsAAAAKAAcAAwAfACwAAAAKAAgAAwAfAC0AAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAwAVACUAAAAAAAEAAwAVACYAAAAAAAIAAwAVACcAAAAAAAMAAwAVACgAAAAAAAQAAwAVACkAAAAAAAUAAwAVACoAAAAAAAYAAwAVACsAAAAAAAcAAwAVACwAAAAAAAgAAwAVAC0AAAABAAAAAwAWACUAAAABAAEAAwAWACYAAAABAAIAAwAWACcAAAABAAMAAwAWACgAAAABAAQAAwAWACkAAAABAAUAAwAZACsAAAABAAYAAwAZACsAAAABAAcAAwAWACwAAAABAAgAAwAWAC0AAAACAAAAAwAXACUAAAACAAEAAwAXACYAAAACAAIAAwAXACcAAAACAAMAAwAXACgAAAACAAQAAwAXACkAAAACAAUAAwAZACsAAAACAAYAAwAZACsAAAACAAcAAwAXACwAAAACAAgAAwAXAC0AAAADAAAAAwAYACUAAAADAAEAAwAYACYAAAADAAIAAwAYACcAAAADAAMAAwAYACgAAAADAAQAAwAYACkAAAADAAUAAwAYACoAAAADAAYAAwAYACsAAAADAAcAAwAYACwAAAADAAgAAwAYAC0AAAAEAAAAAwAZACUAAAAEAAEAAwAZACYAAAAEAAIAAwAZACcAAAAEAAMAAwAZACgAAAAEAAQAAwAZACkAAAAEAAUAAwAZACoAAAAEAAYAAwAZACsAAAAEAAcAAwAZACwAAAAEAAgAAwAZAC0AAAAFAAAAAwAaACUAAAAFAAEAAwAaACYAAAAFAAIAAwAaACcAAAAFAAMAAwAaACgAAAAFAAQAAwAaACkAAAAFAAUAAwAaACoAAAAFAAYAAwAaACsAAAAFAAcAAwAaACwAAAAFAAgAAwAaAC0AAAAGAAAAAwAbACUAAAAGAAEAAwAbACYAAAAGAAIAAwAbACcAAAAGAAMAAwAbACgAAAAGAAQAAwAbACkAAAAGAAUAAwAbACoAAAAGAAYAAwAbACsAAAAGAAcAAwAbACwAAAAGAAgAAwAbAC0AAAAHAAAAAwAcACUAAAAHAAEAAwAcACYAAAAHAAIAAwAcACcAAAAHAAMAAwAaACgAAAAHAAQAAwAaACgAAAAHAAUAAwAaACgAAAAHAAYAAwAaACgAAAAHAAcAAwAcACwAAAAHAAgAAwAcAC0AAAAIAAAAAwAdACUAAAAIAAEAAwAdACYAAAAIAAIAAwAdACcAAAAIAAMAAwAaACgAAAAIAAQAAwAaACgAAAAIAAUAAwAaACgAAAAIAAYAAwAaACgAAAAIAAcAAwAdACwAAAAIAAgAAwAdAC0AAAAJAAAAAwAeACUAAAAJAAEAAwAeACYAAAAJAAIAAwAeACcAAAAJAAMAAwAeACgAAAAJAAQAAwAeACkAAAAJAAUAAwAeACoAAAAJAAYAAwAeACsAAAAJAAcAAwAeACwAAAAJAAgAAwAeAC0AAAAKAAAAAwAfACUAAAAKAAEAAwAfACYAAAAKAAIAAwAfACcAAAAKAAMAAwAbACkAAAAKAAQAAwAbACkAAAAKAAUAAwAbACkAAAAKAAYAAwAbACkAAAAKAAcAAwAfACwAAAAKAAgAAwAfAC0AAAALAAAAAwAdAC0AAAALAAEAAwAdAC0AAAALAAIAAwAdAC0AAAALAAMAAwAdAC0AAAALAAQAAwAdAC0AAAALAAUAAwAdAC0AAAALAAYAAwAdAC0AAAALAAcAAwAdAC0AAAALAAgAAwAdAC0AAAAMAAAAAwAdAC0AAAAMAAEAAwAdAC0AAAAMAAIAAwAdAC0AAAAMAAMAAwAdAC0AAAAMAAQAAwAdAC0AAAAMAAUAAwAdAC0AAAAMAAYAAwAdAC0AAAAMAAcAAwAdAC0AAAAMAAgAAwAdAC0AAAAMAP//AwAdAC0AAAALAP//AwAdAC0AAAAKAP//AwAdAC0AAAAJAP//AwAdAC0AAAAIAP//AwAdAC0AAAAHAP//AwAdAC0AAAAGAP//AwAdAC0AAAAFAP//AwAdAC0AAAAEAP//AwAdAC0AAAADAP//AwAdAC0AAAACAP//AwAdAC0AAAABAP//AwAdAC0AAAAAAP//AwAdAC0AAAD/////AwAdAC0AAAD//wAAAwAdAC0AAAD//wEAAwAdAC0AAAD//wIAAwAdAC0AAAD+/wIAAwAdAC0AAAD+/wMAAwAdAC0AAAD+/wQAAwAdAC0AAAD+/wUAAwAdAC0AAAD+/wYAAwAdAC0AAAD//wMAAwAdAC0AAAD+////AwAdAC0AAAD+/wAAAwAdAC0AAAD+/wEAAwAdAC0AAAD+/wcAAwAdAC0AAAD+/wgAAwAdAC0AAAD//wgAAwAdAC0AAAD//wcAAwAdAC0AAAD//wYAAwAdAC0AAAD//wUAAwAdAC0AAAD//wQAAwAdAC0AAAA=")
 tile_set = ExtResource("1_utsvb")
 
 [node name="SpawnPoint" type="Node2D" parent="." unique_id=193747501]
@@ -34,3 +52,68 @@ SpawnPoint = NodePath("SpawnFromOutside")
 [node name="SpawnFromOutside" type="Marker2D" parent="SceneTriggers/SmallTownTrigger" unique_id=1830850955]
 position = Vector2(-8, -16)
 rotation = 3.1415927
+
+[node name="Table" type="StaticBody2D" parent="." unique_id=437438434]
+
+[node name="PokemartTableTop" type="Sprite2D" parent="Table" unique_id=1506990118]
+z_index = 10
+texture_filter = 1
+position = Vector2(32, 96)
+texture = ExtResource("5_3atna")
+
+[node name="PokenomTableBottom" type="Sprite2D" parent="Table" unique_id=1417156300]
+texture_filter = 1
+position = Vector2(32, 104)
+scale = Vector2(1, 1.3333334)
+texture = ExtResource("6_dukoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table" unique_id=1531702743]
+position = Vector2(32, 104)
+scale = Vector2(1, 1.0833331)
+shape = SubResource("RectangleShape2D_8m3qy")
+
+[node name="Shelf_1" type="StaticBody2D" parent="." unique_id=965403343]
+
+[node name="PokemartShelfTop" type="Sprite2D" parent="Shelf_1" unique_id=459263202]
+z_index = 10
+texture_filter = 1
+position = Vector2(128, 64)
+scale = Vector2(1, 1.2499999)
+texture = ExtResource("7_3atna")
+
+[node name="PokemartShelfBottom" type="Sprite2D" parent="Shelf_1" unique_id=2090951506]
+texture_filter = 1
+position = Vector2(128, 84)
+scale = Vector2(0.99999976, 1.0370371)
+texture = ExtResource("8_dukoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shelf_1" unique_id=2134394531]
+z_index = 10
+position = Vector2(128, 88)
+shape = SubResource("RectangleShape2D_urggu")
+
+[node name="SideShelf" type="StaticBody2D" parent="." unique_id=53347465]
+
+[node name="PokemartSideShelfBottom" type="Sprite2D" parent="SideShelf" unique_id=27803686]
+texture_filter = 1
+position = Vector2(168, 88)
+scale = Vector2(1, 0.8888889)
+texture = ExtResource("9_urggu")
+
+[node name="PokemartSideShelfTop" type="Sprite2D" parent="SideShelf" unique_id=588901478]
+z_index = 10
+texture_filter = 1
+position = Vector2(168, 72)
+scale = Vector2(1, 1.0000001)
+texture = ExtResource("10_h3ec2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideShelf" unique_id=1197988574]
+z_index = 10
+position = Vector2(168, 90)
+shape = SubResource("RectangleShape2D_bkn1v")
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1290701543]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries" unique_id=344816474]
+position = Vector2(196, 72)
+shape = SubResource("RectangleShape2D_h3ec2")

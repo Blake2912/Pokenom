@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vr6rnnkchtvq"
-path="res://.godot/imported/Character1.png-0c6c73c35d78fa1ef31dfa762d471096.ctex"
+uid="uid://c6akuur0q8brf"
+path="res://.godot/imported/computer_bottom.png-94a57509021013e1d352392736847901.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characeters/Character1.png"
-dest_files=["res://.godot/imported/Character1.png-0c6c73c35d78fa1ef31dfa762d471096.ctex"]
+source_file="res://assets/items/bills_house/computer_bottom.png"
+dest_files=["res://.godot/imported/computer_bottom.png-94a57509021013e1d352392736847901.ctex"]
 
 [params]
 

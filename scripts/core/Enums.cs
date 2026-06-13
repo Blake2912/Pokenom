@@ -35,7 +35,7 @@ public enum LevelNames
     pokemart,
     smalltown_dungeon,
     pokenom_center,
-    smalltown_phils_house,
+    bills_house,
     pokenom_center_first_floor
 }
 
