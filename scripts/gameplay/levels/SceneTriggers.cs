@@ -39,6 +39,7 @@ public partial class SceneTriggers : Area2D
 		if (Locked)
 		{
 			CustomLogger.Warning("THE DOOR IS LOCKED");
+			return;
 		}
 
 		SceneManager.ChangeLevel(levelName: TargetLevelName, trigger: TargetLevelTrigger);

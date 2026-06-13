@@ -72,11 +72,16 @@ SpawnPoint = NodePath("SpawnBackInSmallTown")
 [node name="SpawnBackInSmallTown" type="Marker2D" parent="SceneTriggers/BillsHouseTrigger" unique_id=1970759556]
 position = Vector2(0, 8)
 
-[node name="DrDoomHouseTrigger" parent="SceneTriggers" unique_id=2119229854 instance=ExtResource("4_peqvl")]
+[node name="DrDoomHouseTrigger" parent="SceneTriggers" unique_id=2119229854 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_peqvl")]
 position = Vector2(232, 104)
 TargetLevelName = 2
 CurrentLevelTrigger = 1
 EntryDirection = Vector2(0, 1)
+SpawnPoint = NodePath("SpawnBackInSmallTown")
+Locked = true
+
+[node name="SpawnBackInSmallTown" type="Marker2D" parent="SceneTriggers/DrDoomHouseTrigger" unique_id=702057878]
+position = Vector2(0, 8)
 
 [node name="PokenomMartTrigger" parent="SceneTriggers" unique_id=2110318793 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_peqvl")]
 position = Vector2(360, 184)
@@ -93,6 +98,7 @@ position = Vector2(392, 72)
 TargetLevelName = 3
 CurrentLevelTrigger = 3
 EntryDirection = Vector2(0, 1)
+Locked = true
 
 [node name="PokenomCenterTrigger" parent="SceneTriggers" unique_id=1052941641 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_peqvl")]
 position = Vector2(88, 216)
@@ -104,11 +110,16 @@ SpawnPoint = NodePath("SpawnBackInSmallTown")
 [node name="SpawnBackInSmallTown" type="Marker2D" parent="SceneTriggers/PokenomCenterTrigger" unique_id=179161460]
 position = Vector2(-8, 16)
 
-[node name="DungeonTrigger" parent="SceneTriggers" unique_id=293340425 instance=ExtResource("4_peqvl")]
+[node name="DungeonTrigger" parent="SceneTriggers" unique_id=293340425 node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_peqvl")]
 position = Vector2(472, 120)
 TargetLevelName = 5
 CurrentLevelTrigger = 5
 EntryDirection = Vector2(0, 1)
+SpawnPoint = NodePath("SpawnBackInSmallTown")
+Locked = true
+
+[node name="SpawnBackInSmallTown" type="Marker2D" parent="SceneTriggers/DungeonTrigger" unique_id=1415728736]
+position = Vector2(0, 16)
 
 [node name="PhillsHouseTrigger" parent="SceneTriggers" unique_id=240520029 instance=ExtResource("4_peqvl")]
 position = Vector2(200, 216)
@@ -116,3 +127,6 @@ TargetLevelName = 7
 CurrentLevelTrigger = 6
 EntryDirection = Vector2(0, 1)
 Locked = true
+
+[node name="SpawnBackInSmallTown" type="Marker2D" parent="SceneTriggers/PhillsHouseTrigger" unique_id=1413959938]
+position = Vector2(0, 8)
